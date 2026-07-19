@@ -9,6 +9,8 @@ const app = express()
 const PORT = process.env.PORT || 3000
 
 // ─── ミドルウェア ──────────────────────────────────────
+// Railwayのリバースプロキシを信頼する
+app.set('trust proxy', 1)
 app.use(cors({
   origin: ['http://localhost', 'http://127.0.0.1'],
   methods: ['GET', 'POST'],
