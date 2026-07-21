@@ -27,7 +27,10 @@ const limiter = rateLimit({
 app.use(limiter)
 
 // ─── ルーティング ──────────────────────────────────────
+const discordRouter = require('./routes/discord')
+
 app.use('/auth', authRouter)
+app.use('/discord', discordRouter)
 
 // ヘルスチェック
 app.get('/health', (req, res) => {
