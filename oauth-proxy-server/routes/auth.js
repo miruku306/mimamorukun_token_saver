@@ -125,10 +125,13 @@ router.post('/discord', async (req, res) => {
         await upsertDiscordUser(payload.userId, discordUser.id, discordUser.username)
         return res.json({
           sessionToken,
-          user: { discordId: discordUser.id, username: discordUser.username }
+          discordAccessToken: tokenData.access_token,
+          user: { id: discordUser.id, username: discordUser.username }
         })
       }
     }
+  
+
 
     res.json({
       discordAccessToken: tokenData.access_token,
